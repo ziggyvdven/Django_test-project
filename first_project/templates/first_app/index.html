@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to our webserv</title>
+	<link rel="stylesheet" href="{% static "styles/styles.css" %}">
+</head>
+<body>
+	<div id="main-container">
+		<nav id="menu">
+			<ul>
+				<li><a href=".">Home</a></li>
+				<li><a href="#">CGI</a>
+					<ul>
+						<li><a href="upload.html">Upload</a></li>
+						<li><a href="time.html">Time</a></li>
+					</ul>
+				</li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</nav>
+		<h1>Welcome to our webserv !!!</h1>
+		<p><img src="{% static "images/smash.avif" %}" alt="Super smash" width="1200" height="675"></p>
+		<div class="djangtwo">
+			{%if access_records %}
+				<table>
+					<thead>
+						<th>Site Name</th>
+						<th>Date Accessed</th>
+					</thead>
+
+					{% for acc in access_records%}
+					<tr>
+						<td>{{ acc.name }}</td>
+						<td>{{ acc.date}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+				{% else %}
+					<p>NO ACCESS RECORDS FOUND!</p>
+				{% endif%}
+		<footer>
+			<p>
+				<a href="./hmm.html"><img src="{% static "images/triforce.png" %}" width="16" height="13"></a>
+				&nbsp;&nbsp;All Hail Ganondorf&nbsp;&nbsp;
+				<img src="{% static "images/triforce.png"%}" width="16" height="13">
+			</p>
+		</footer>
+	</div>
+</body>
+</html>
